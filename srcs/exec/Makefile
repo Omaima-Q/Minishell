@@ -6,7 +6,7 @@
 #    By: bhajili <bhajili@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 09:53:44 by bhajili           #+#    #+#              #
-#    Updated: 2025/07/03 07:02:49 by bhajili          ###   ########.fr        #
+#    Updated: 2025/07/03 20:37:04 by bhajili          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS        = exec_manager.c \
               exec_builtin_00.c \
               exec_builtin_01.c \
               exec_builtin_02.c \
+              exec_builtin_03.c \
 			  exec_external_00.c \
 			  exec_external_01.c \
 			  exec_pipe.c \

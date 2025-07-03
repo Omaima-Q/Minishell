@@ -6,7 +6,7 @@
 /*   By: bhajili <bhajili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 01:07:25 by bhajili           #+#    #+#             */
-/*   Updated: 2025/07/03 07:10:42 by bhajili          ###   ########.fr       */
+/*   Updated: 2025/07/03 20:36:52 by bhajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ int		is_valid_key(const char *key);
 int		handle_heredocs(t_command *cmd);
 int		exec_pipe(t_ast_node *left, t_ast_node *right, t_env *env);
 int		handle_and_return_status(int status);
-
+int		run_cd(t_command *cmd, t_env *env);
 #endif

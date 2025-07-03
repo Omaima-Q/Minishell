@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils_02.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhajili <bhajili@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: bhajili <bhajili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:16:45 by bhajili           #+#    #+#             */
-/*   Updated: 2025/07/02 01:24:37 by bhajili          ###   ########.fr       */
+/*   Updated: 2025/07/03 20:43:12 by bhajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,25 @@ void	env_free(t_env *env)
 	if (env->var_list)
 		free_varlist(env->var_list);
 	free(env);
+}
+
+int	env_setvalue(t_env *env, const char *key, char *value)
+{
+	char		*keyvalue;
+	t_env_var	*envvar;
+	int			res;
+
+	if (!key || !value)
+		return (0);
+	keyvalue = ft_strjoin(key, "=");
+	if (!keyvalue)
+		return (0);
+	if (!ft_safeappendstr(&keyvalue, value))
+		return (0);
+	envvar = env_varinit(keyvalue);
+	free(keyvalue);
+	if (!envvar)
+		return (0);
+	res = env_varlist_add(env, envvar);
+	return (res);
 }
