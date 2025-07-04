@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_builtin_02.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhajili <bhajili@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: oqaroot <oqaroot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 01:34:54 by bhajili           #+#    #+#             */
-/*   Updated: 2025/07/01 03:17:25 by bhajili          ###   ########.fr       */
+/*   Updated: 2025/07/04 17:40:53 by oqaroot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,21 @@ int	run_exit(t_command *cmd)
 {
 	ft_putendl_fd("exit", 2);
 	if (!cmd->argv[1])
-		exit(0);
+		return (EXIT_CODE_SIGNALLED);
 	if (!is_numeric(cmd->argv[1]))
 	{
 		ft_putstr_fd("minishell: exit: ", 2);
 		ft_putstr_fd(cmd->argv[1], 2);
 		ft_putendl_fd(": numeric argument required", 2);
-		exit(255);
+		return (EXIT_CODE_SIGNALLED);
 	}
 	if (cmd->argv[2])
 	{
 		ft_putendl_fd("minishell: exit: too many arguments", 2);
-		return (1);
+		return (EXIT_CODE_SIGNALLED);
 	}
-	exit(ft_atoi(cmd->argv[1]) % 256);
+	// return (ft_atoi(cmd->argv[1]) % 256);
+	return (EXIT_CODE_SIGNALLED);
 }
 
 int	run_env(t_env *env)

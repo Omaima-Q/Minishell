@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils_00.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhajili <bhajili@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: oqaroot <oqaroot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:16:45 by bhajili           #+#    #+#             */
-/*   Updated: 2025/07/02 01:03:03 by bhajili          ###   ########.fr       */
+/*   Updated: 2025/07/04 18:13:31 by oqaroot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ char	**env_reassemble_envp(t_env *env)
 	envp[i] = NULL;
 	free(env->envp);
 	env->envp = envp;
-	return (env->is_actual = 1, envp);
+	env->size = ft_arrsize(env->envp);
+	return (env->is_actual = 1, env->envp);
 }
 
 t_env_var	*env_varinit(char *keyvalue)
