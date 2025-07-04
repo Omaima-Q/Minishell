@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_arr_00.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhajili <bhajili@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: bhajili <bhajili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 13:23:02 by bhajili           #+#    #+#             */
-/*   Updated: 2025/06/29 09:12:12 by bhajili          ###   ########.fr       */
+/*   Updated: 2025/07/04 18:42:19 by bhajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_freearr(char **arr, ssize_t size)
 		if (arr[i])
 			free(arr[i]);
 	free(arr);
+	arr = NULL;
 }
 
 size_t	ft_arrsize(char **arr)
@@ -58,7 +59,7 @@ char	**ft_arrdup(char **src, size_t size)
 	i = 0;
 	if (!src || ft_arrsize(src) != size)
 		return (NULL);
-	dup = malloc(sizeof(char *) * (size + 1));
+	dup = ft_calloc((size + 8), sizeof(char *));
 	if (!dup)
 		return (NULL);
 	while (i < size)

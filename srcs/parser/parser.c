@@ -6,7 +6,7 @@
 /*   By: bhajili <bhajili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:56:39 by bhajili           #+#    #+#             */
-/*   Updated: 2025/07/03 19:37:13 by bhajili          ###   ########.fr       */
+/*   Updated: 2025/07/04 20:05:46 by bhajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ static t_ast_node	*parse_pipe(t_token **token_list)
 	t_ast_node	*left;
 	t_ast_node	*right;
 
+	if (!*token_list || (*token_list)->type == PIPE)
+	{
+		print_parser_error(ERR_CODE_PARSER_SYNTAX_00, (*token_list)->value);
+		return (NULL);
+	}
 	left = parse_command(token_list);
 	if (!left)
 		return (NULL);
@@ -40,6 +45,11 @@ static t_ast_node	*parse_logical_and(t_token **token_list)
 	t_ast_node	*left;
 	t_ast_node	*right;
 
+	if (!*token_list || (*token_list)->type == LOGICAL_AND)
+	{
+		print_parser_error(ERR_CODE_PARSER_SYNTAX_00, (*token_list)->value);
+		return (NULL);
+	}
 	left = parse_pipe(token_list);
 	if (!left)
 		return (NULL);
@@ -63,6 +73,11 @@ static t_ast_node	*parse_logical_or(t_token **token_list)
 	t_ast_node	*left;
 	t_ast_node	*right;
 
+	if (!*token_list || (*token_list)->type == LOGICAL_OR)
+	{
+		print_parser_error(ERR_CODE_PARSER_SYNTAX_00, (*token_list)->value);
+		return (NULL);
+	}
 	left = parse_logical_and(token_list);
 	if (!left)
 		return (NULL);

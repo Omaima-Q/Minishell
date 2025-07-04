@@ -4,7 +4,7 @@
 CC      = cc
 
 # Common flags
-CFLAGS  = -Wall -Wextra -Werror -g
+CFLAGS  = -Wall -Wextra -Werror -g3
 
 # Includes
 INCLUDES = -Iincludes -Ilibft
