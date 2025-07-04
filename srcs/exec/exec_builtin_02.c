@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_builtin_02.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oqaroot <oqaroot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bhajili <bhajili@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 01:34:54 by bhajili           #+#    #+#             */
-/*   Updated: 2025/07/04 17:40:53 by oqaroot          ###   ########.fr       */
+/*   Updated: 2025/07/04 20:33:19 by bhajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	run_exit(t_command *cmd)
 		ft_putendl_fd("minishell: exit: too many arguments", 2);
 		return (EXIT_CODE_SIGNALLED);
 	}
-	// return (ft_atoi(cmd->argv[1]) % 256);
 	return (EXIT_CODE_SIGNALLED);
 }
 
